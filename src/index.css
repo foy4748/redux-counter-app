@@ -8,3 +8,16 @@
   border: 1px solid red;
 }
 */
+
+.animate-tally {
+  animation: animateTally 0.2s ease-in alternate;
+}
+
+@keyframes animateTally {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

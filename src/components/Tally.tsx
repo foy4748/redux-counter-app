@@ -13,21 +13,11 @@ const Tally = () => {
   const numberOfTally = Math.floor(count / 5);
   const tallyMark = count % 5;
   const tallySet = [
-    <span>
-      <LuTally1 />
-    </span>,
-    <span>
-      <LuTally2 />
-    </span>,
-    <span>
-      <LuTally3 />
-    </span>,
-    <span>
-      <LuTally4 />
-    </span>,
-    <span>
-      <LuTally5 />
-    </span>,
+    <LuTally1 className="animate-tally" />,
+    <LuTally2 className="animate-tally" />,
+    <LuTally3 className="animate-tally" />,
+    <LuTally4 className="animate-tally" />,
+    <LuTally5 className="animate-tally" />,
   ];
 
   // Creating the 5 tiles
