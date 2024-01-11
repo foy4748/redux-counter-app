@@ -1,56 +1,35 @@
 import { useAppDispatch, useAppSelector } from "./hooks/useRedux";
-import {
-  LuTally1,
-  LuTally2,
-  LuTally3,
-  LuTally4,
-  LuTally5,
-} from "react-icons/lu";
 import { increment, decrement } from "./redux/counterSlice";
+import Tally from "./components/Tally";
 function App() {
   const { counter } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
-  type TallyProp = {
-    count: number;
-  };
-  const Tally = ({ count }: TallyProp) => {
-    const numberOfTally = Math.floor(count / 5);
-    const tallyMark = count % 5;
-    const tallySet = [
-      <span>
-        <LuTally1 />
-      </span>,
-      <span>
-        <LuTally2 />
-      </span>,
-      <span>
-        <LuTally3 />
-      </span>,
-      <span>
-        <LuTally4 />
-      </span>,
-      <span>
-        <LuTally5 />
-      </span>,
-    ];
-    const tallies = Array(numberOfTally).fill(tallySet[4]);
-    tallies.push(tallySet[tallyMark - 1]);
-    return tallies;
-  };
-
   return (
     <>
-      <section className="border h-screen flex justify-center items-center">
+      <section className="border h-screen flex gap-40 justify-center items-center">
         <div>
-          <h1>Count: {counter.value}</h1>
-          <div className="flex justify-between">
-            <button onClick={() => dispatch(increment())}>+</button>
-            <button onClick={() => dispatch(decrement())}>-</button>
+          <div className="text-center bg-cyan-400 rounded p-3 text-white">
+            <h2 className="font-bold text-xl">{counter.value}</h2>
+            <h1>Count</h1>
           </div>
-          <div className="flex">
-            <Tally count={counter.value} />
+          <div className="flex justify-center">
+            <button
+              onClick={() => dispatch(increment())}
+              className="px-3 px-5 bg-gray-400 rounded text-white text-center m-1 transition-transform hover:scale-[1.2]"
+            >
+              +1
+            </button>
+            <button
+              onClick={() => dispatch(decrement())}
+              className="px-3 px-5 bg-gray-400 rounded text-white text-center m-1 transition-transform hover:scale-[1.2]"
+            >
+              -1
+            </button>
           </div>
+        </div>
+        <div className="flex justify-center flex-wrap w-40 text-xl">
+          <Tally />
         </div>
       </section>
     </>
