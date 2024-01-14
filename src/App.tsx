@@ -1,8 +1,8 @@
 import { useAppDispatch, useAppSelector } from "./hooks/useRedux";
-import { increment, decrement } from "./redux/counterSlice";
+import { increment, decrement, ICounterState } from "./redux/counterSlice";
 import Tally from "./components/Tally";
 function App() {
-  const { counter } = useAppSelector((state) => state);
+  const counter = useAppSelector<ICounterState>((state) => state.counter);
   const dispatch = useAppDispatch();
 
   return (
